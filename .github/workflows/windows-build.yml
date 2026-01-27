@@ -20,13 +20,16 @@ jobs:
 
       - name: Get dependencies
         run: flutter pub get
+        working-directory: WindowsShare   # 👈 FIX HERE
 
       - name: Build Windows
         run: flutter build windows
+        working-directory: WindowsShare   # 👈 FIX HERE
 
       - name: Upload build
         uses: actions/upload-artifact@v4
         with:
           name: WiFiShare-Windows
-          path: build/windows/x64/runner/Release/
+          path: WindowsShare/build/windows/x64/runner/Release/
+
 
